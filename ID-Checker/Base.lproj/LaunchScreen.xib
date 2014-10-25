@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6214" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6207"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -23,19 +24,59 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CN" translatesAutoresizingMaskIntoConstraints="NO" id="YoX-2S-aqE">
+                    <rect key="frame" x="28" y="190" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="IRG-Yq-TS5"/>
+                        <constraint firstAttribute="width" constant="100" id="qRS-EG-iOD"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KO" translatesAutoresizingMaskIntoConstraints="NO" id="GLH-S5-z0J">
+                    <rect key="frame" x="136" y="190" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Xoz-Qe-g0l"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TW" translatesAutoresizingMaskIntoConstraints="NO" id="3ay-7r-4Hy">
+                    <rect key="frame" x="244" y="190" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="zVH-2p-g7B"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HK" translatesAutoresizingMaskIntoConstraints="NO" id="osn-Cy-3vw">
+                    <rect key="frame" x="352" y="190" width="100" height="100"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="3ay-7r-4Hy" firstAttribute="bottom" secondItem="osn-Cy-3vw" secondAttribute="bottom" id="2vF-U2-lna"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
+                <constraint firstItem="GLH-S5-z0J" firstAttribute="leading" secondItem="YoX-2S-aqE" secondAttribute="trailing" constant="8" symbolic="YES" id="6vu-6m-Xg7"/>
+                <constraint firstItem="3ay-7r-4Hy" firstAttribute="bottom" secondItem="GLH-S5-z0J" secondAttribute="bottom" id="EqJ-Lh-RcX"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
+                <constraint firstItem="3ay-7r-4Hy" firstAttribute="leading" secondItem="GLH-S5-z0J" secondAttribute="trailing" constant="8" symbolic="YES" id="Kvi-vd-lhf"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
+                <constraint firstAttribute="trailing" secondItem="osn-Cy-3vw" secondAttribute="trailing" constant="28" id="WLO-2v-PvQ"/>
+                <constraint firstItem="osn-Cy-3vw" firstAttribute="leading" secondItem="3ay-7r-4Hy" secondAttribute="trailing" constant="8" symbolic="YES" id="XY4-Kt-t6T"/>
+                <constraint firstItem="osn-Cy-3vw" firstAttribute="top" secondItem="3ay-7r-4Hy" secondAttribute="top" id="XsQ-l1-Vih"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="YoX-2S-aqE" firstAttribute="top" secondItem="GLH-S5-z0J" secondAttribute="top" id="jmC-ml-4uV"/>
+                <constraint firstItem="YoX-2S-aqE" firstAttribute="bottom" secondItem="GLH-S5-z0J" secondAttribute="bottom" id="nL0-aO-dPq"/>
+                <constraint firstItem="3ay-7r-4Hy" firstAttribute="top" secondItem="GLH-S5-z0J" secondAttribute="top" id="nSV-HQ-K4V"/>
+                <constraint firstItem="YoX-2S-aqE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="28" id="nnB-t4-KT9"/>
+                <constraint firstItem="YoX-2S-aqE" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="7" id="tZw-q4-60n"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
+            <point key="canvasLocation" x="548" y="319"/>
         </view>
     </objects>
+    <resources>
+        <image name="CN" width="400" height="400"/>
+        <image name="HK" width="400" height="400"/>
+        <image name="KO" width="400" height="400"/>
+        <image name="TW" width="400" height="400"/>
+    </resources>
 </document>
