@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iAd/iAd.h>
-@interface MenuViewController : UIViewController<ADBannerViewDelegate>
-@property (weak, nonatomic) IBOutlet ADBannerView *adBanner;
+@import GoogleMobileAds;
+@interface MenuViewController : UIViewController
+@property (weak, nonatomic) IBOutlet GADBannerView *aGADBannerView;
 @end

@@ -11,7 +11,13 @@
 #define MAX_LENGTH_CN 18
 #define MAX_LENGTH_HK 9
 #define MAX_LENGTH_KOR 13
-@interface ContentViewController ()
+#define Screen_height   [[UIScreen mainScreen] bounds].size.height
+#define Screen_width    [[UIScreen mainScreen] bounds].size.width
+#define IS_IPHONE_4 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)480) < DBL_EPSILON)
+#define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)568) < DBL_EPSILON)
+#define IS_IPHONE_6 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)667) < DBL_EPSILON)
+#define IS_IPHONE_6_PLUS (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)736) < DBL_EPSILON)
+@interface ContentViewController ()<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *flagImageView;
 @property (strong, nonatomic) IBOutlet UITextField *idTextField;
 @property (strong, nonatomic) IBOutlet UIImageView *answerImageView;
@@ -99,6 +105,16 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+
+    if (IS_IPHONE_4) {
+        [UIView animateWithDuration:0.3f animations:^{
+            [self.view setFrame:CGRectMake(0, 0, Screen_width, Screen_height)];
+            [self.view layoutIfNeeded];
+        }];
+    }
+    
+
+    
     if ([self.flagImageName isEqualToString:@"TW.png"]) {
         if (textField.text.length == MAX_LENGTH_TW){
             if([self checkTaiwanId]){
@@ -162,7 +178,17 @@
     return YES;
 }
 
-
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (IS_IPHONE_4) {
+        [UIView animateWithDuration:0.3f animations:^{
+            [self.view setFrame:CGRectMake(0, -60, Screen_width, Screen_height)];
+            [self.view layoutIfNeeded];
+        }];
+    }
+    
+}
+    
 
 - (void)didReceiveMemoryWarning
 {
@@ -271,9 +297,9 @@
         
     //檢核前6碼
     
-    if ([_plistData objectForKey:[_idTextField.text substringWithRange:NSMakeRange(0, 6)]] == nil) {
-        return NO;
-    }
+//    if ([_plistData objectForKey:[_idTextField.text substringWithRange:NSMakeRange(0, 6)]] == nil) {
+//        return NO;
+//    }
     
     //檢核7~14碼
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -393,8 +419,7 @@
     
     
     NSArray *lastCheckCodeArr = [[NSArray alloc]initWithObjects:@"1", @"0", @"X", @"9", @"8", @"7", @"6", @"5", @"4", @"3", @"2", nil];
-    
-    
+
     if ([[idNO substringWithRange:NSMakeRange(17, 1)] isEqual:[lastCheckCodeArr objectAtIndex:(counter % 11)]] ) {
         return YES;
     }else {

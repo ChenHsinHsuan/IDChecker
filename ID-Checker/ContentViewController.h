@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContentViewController : UIViewController<UITextFieldDelegate>
+@interface ContentViewController : UIViewController
 
 @property NSString *flagImageName;
 @property NSString *placeHolder;

@@ -8,9 +8,12 @@
 
 #import "MenuViewController.h"
 #import "ContentViewController.h"
+#import "MainCollectionViewCell.h"
 
+@interface MenuViewController (){
+    NSArray *myArr;
+}
 
-@interface MenuViewController ()
 
 @end
 
@@ -29,13 +32,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    myArr = @[@"CN", @"TW", @"KO", @"HK"];
     
-    // Make self the delegate of the ad banner.
-    self.adBanner.delegate = self;
-    
-    // Initially hide the ad banner.
-    self.adBanner.alpha = 0.0;
-    
+    //Admob
+    self.aGADBannerView.adUnitID = @"ca-app-pub-5200673733349176/2738515243";
+    self.aGADBannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    [self.aGADBannerView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,36 +72,28 @@
     }
 }
 
--(void)bannerViewWillLoadAd:(ADBannerView *)banner{
-    NSLog(@"Ad Banner will load ad.");
+
+
+
+#pragma mark - Collection View Delegate
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [myArr count];
 }
 
--(void)bannerViewDidLoadAd:(ADBannerView *)banner{
-    NSLog(@"Ad Banner did load ad.");
-    // Show the ad banner.
-    [UIView animateWithDuration:0.5 animations:^{
-        self.adBanner.alpha = 1.0;
-    }];
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-}
-
--(BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave{
-    NSLog(@"Ad Banner action is about to begin.");
     
-    return YES;
+    MainCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:myArr[indexPath.row]
+                                                             forIndexPath:indexPath];
+    return cell;
 }
 
--(void)bannerViewActionDidFinish:(ADBannerView *)banner{
-    NSLog(@"Ad Banner action did finish");
-}
+#pragma mark -
+#pragma mark Segue
+- (IBAction)backToMain:(UIStoryboardSegue *)unwindSegue
+{
 
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
-    NSLog(@"Unable to show ads. Error: %@", [error localizedDescription]);
-    
-    // Hide the ad banner.
-    [UIView animateWithDuration:0.5 animations:^{
-        self.adBanner.alpha = 0.0;
-    }];
 }
-
 @end
